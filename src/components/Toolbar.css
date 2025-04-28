@@ -1,0 +1,91 @@
+/* Basic Toolbar Styling */
+.toolbar {
+  background-color: var(--toolbar-bg);
+  color: var(--toolbar-text);
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Keep toolbar at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it's above other content */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.toolbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toolbar h1 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+/* Theme Toggle Button Styling */
+.toolbar-button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: 1px solid var(--button-border);
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.toolbar-button:hover {
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-text);
+}
+
+/* Revert Button Styling (uses the same theme variables) */
+.revert-button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: 1px solid var(--button-border);
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin-left: 10px; /* Add some space between buttons */
+}
+
+.revert-button:hover {
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-text);
+}
+
+
+/* Define CSS variables for light and dark themes */
+body.theme-light {
+  --toolbar-bg: #f8f9fa;
+  --toolbar-text: #212529;
+  --button-bg: #e9ecef;
+  --button-text: #495057;
+  --button-border: #ced4da;
+  --button-hover-bg: #dee2e6;
+  --button-hover-text: #212529;
+  --background-color: #ffffff; /* Overall background */
+  --text-color: #000000; /* Overall text color */
+}
+
+body.theme-dark {
+  --toolbar-bg: #343a40;
+  --toolbar-text: #f8f9fa;
+  --button-bg: #495057;
+  --button-text: #f8f9fa;
+  --button-border: #6c757d;
+  --button-hover-bg: #6c757d;
+  --button-hover-text: #ffffff;
+  --background-color: #212529; /* Overall background */
+  --text-color: #f8f9fa; /* Overall text color */
+}
+
+/* Apply general theme styles */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 60px; /* Add margin to the top of the body to prevent content from being hidden behind the fixed toolbar. Adjust the value based on the toolbar's height. */
+}

@@ -1,0 +1,183 @@
+/* src/components/VariableManagerPanel.css */
+
+.variable-manager-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.variable-manager-panel {
+  background-color: var(--background-color); /* Use theme background */
+  color: var(--text-color); /* Use theme text color */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 600px; /* Limit maximum width */
+  max-height: 80vh; /* Limit maximum height */
+  overflow-y: auto; /* Allow scrolling if content exceeds height */
+  position: relative; /* Needed for absolute positioning of close button */
+}
+
+.variable-manager-panel h2,
+.variable-manager-panel h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--text-color-emphasis); /* Slightly emphasized text */
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 5px;
+}
+
+.panel-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.variable-add-section,
+.variable-list-section {
+  margin-bottom: 20px;
+}
+
+.variable-input,
+.variable-type-select,
+.variable-button {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--input-background-color); /* Use theme background */
+  color: var(--text-color); /* Use theme text color */
+  margin-right: 10px; /* Spacing between inputs/buttons */
+  margin-bottom: 10px; /* Spacing below inputs/buttons */
+  font-size: 0.9rem;
+}
+
+/* Ensure select specifically inherits colors */
+/* Reverted appearance: none for now */
+.variable-type-select {
+  background-color: var(--input-background-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.variable-input:focus,
+.variable-type-select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px var(--accent-color-light);
+}
+
+.variable-type-select {
+  min-width: 100px;
+}
+
+.variable-value-input {
+  flex-grow: 1; /* Allow value input to take more space */
+}
+
+.variable-button {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.variable-button:hover {
+  background-color: var(--button-hover-background-color);
+}
+
+/* Use standard theme button variables for consistency */
+.add-button {
+  background-color: var(--button-bg); /* Use theme variable */
+  color: var(--button-text); /* Use theme variable */
+  border-color: var(--button-border); /* Use theme variable */
+}
+
+.add-button:hover {
+  background-color: var(--button-hover-bg); /* Use theme variable */
+}
+
+
+.variable-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.variable-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color-light);
+}
+
+.variable-item:last-child {
+  border-bottom: none;
+}
+
+.variable-name,
+.variable-value {
+  margin-right: 15px;
+}
+
+.variable-name {
+  font-weight: bold;
+  min-width: 120px; /* Ensure name column has some width */
+}
+
+.variable-value {
+  color: var(--text-color-secondary);
+  font-style: italic;
+  flex-grow: 1; /* Allow value to take remaining space */
+  text-align: left;
+}
+
+.variable-actions {
+  display: flex;
+  gap: 5px; /* Space between buttons */
+}
+
+.edit-button,
+.save-button {
+  background-color: var(--button-secondary-background-color);
+}
+
+/* Use standard theme button variables for consistency */
+/* Consider defining specific danger variables in Toolbar.css later */
+.delete-button,
+.cancel-button {
+  background-color: var(--button-bg); /* Use theme variable for now */
+  color: var(--button-text); /* Use theme variable for now */
+  border-color: var(--button-border); /* Use theme variable */
+}
+
+.delete-button:hover,
+.cancel-button:hover {
+  background-color: var(--button-hover-bg); /* Use theme variable */
+}
+
+
+/* Styles for editing inputs within the list */
+.variable-item .variable-input {
+  margin-right: 5px; /* Reduce margin in edit mode */
+  margin-bottom: 0;
+}
+
+.variable-item .variable-name-input {
+  width: 150px; /* Fixed width for name input */
+}
+
+.variable-item .variable-value-input {
+  flex-grow: 1; /* Allow value input to grow */
+}

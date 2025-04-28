@@ -1,0 +1,212 @@
+/* Define VN Player specific CSS variables within theme scopes */
+body.theme-light {
+  --vn-overlay-bg: rgba(50, 50, 50, 0.6);
+  --vn-content-bg: #ffffff;
+  --vn-content-text: #212529;
+  --vn-content-border: #dee2e6;
+  --vn-title-border: #e9ecef;
+  --vn-display-bg: #f8f9fa;
+  --vn-character-text: #6c757d;
+  --vn-dialogue-text: #212529;
+  --vn-prompt-text: #495057;
+  --vn-system-text: #6c757d;
+  --vn-button-bg: #007bff;
+  --vn-button-text: #ffffff;
+  --vn-button-hover-bg: #0056b3;
+  --vn-choice-button-bg: #e9ecef;
+  --vn-choice-button-text: #495057;
+  --vn-choice-button-hover-bg: #dee2e6;
+  --vn-close-button-bg: #f8f9fa;
+  --vn-close-button-text: #6c757d;
+  --vn-close-button-hover-bg: #e9ecef;
+  --vn-debug-bg: #f8f9fa;
+  --vn-debug-border: #dee2e6;
+  --vn-debug-title-text: #6c757d;
+  --vn-debug-content-text: #495057;
+}
+
+body.theme-dark {
+  --vn-overlay-bg: rgba(0, 0, 0, 0.7);
+  --vn-content-bg: #343a40;
+  --vn-content-text: #f8f9fa;
+  --vn-content-border: #495057;
+  --vn-title-border: #495057;
+  --vn-display-bg: #212529;
+  --vn-character-text: #adb5bd;
+  --vn-dialogue-text: #f8f9fa;
+  --vn-prompt-text: #ced4da;
+  --vn-system-text: #adb5bd;
+  --vn-button-bg: #0d6efd; /* Slightly brighter blue for dark mode */
+  --vn-button-text: #ffffff;
+  --vn-button-hover-bg: #0b5ed7;
+  --vn-choice-button-bg: #495057;
+  --vn-choice-button-text: #f8f9fa;
+  --vn-choice-button-hover-bg: #6c757d;
+  --vn-close-button-bg: #495057;
+  --vn-close-button-text: #f8f9fa;
+  --vn-close-button-hover-bg: #6c757d;
+  --vn-debug-bg: #212529;
+  --vn-debug-border: #495057;
+  --vn-debug-title-text: #adb5bd;
+  --vn-debug-content-text: #ced4da;
+}
+
+/* General VN Player Styling using CSS variables */
+.vn-player-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--vn-overlay-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050; /* Ensure it's above toolbar (which is 1000) */
+  transition: background-color 0.3s;
+}
+
+.vn-player-content {
+  background-color: var(--vn-content-bg);
+  color: var(--vn-content-text);
+  padding: 30px;
+  border: 1px solid var(--vn-content-border);
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  min-height: 300px;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.vn-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--vn-close-button-bg);
+  color: var(--vn-close-button-text);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 30px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.vn-close-button:hover {
+  background: var(--vn-close-button-hover-bg);
+}
+
+.vn-player-content h2 {
+  margin-top: 0;
+  text-align: center;
+  color: var(--vn-content-text); /* Use main content text color */
+  border-bottom: 1px solid var(--vn-title-border);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.vn-display-area {
+  flex-grow: 1;
+  background-color: var(--vn-display-bg);
+  padding: 20px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  overflow-y: auto;
+  transition: background-color 0.3s;
+}
+
+.vn-character {
+  font-weight: bold;
+  color: var(--vn-character-text);
+  margin-bottom: 5px;
+  transition: color 0.3s;
+}
+
+.vn-dialogue {
+  font-size: 1.1em;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  color: var(--vn-dialogue-text);
+  transition: color 0.3s;
+}
+
+.vn-prompt {
+  font-style: italic;
+  color: var(--vn-prompt-text);
+  margin-bottom: 15px;
+  transition: color 0.3s;
+}
+
+.vn-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vn-button {
+  padding: 10px 15px;
+  background-color: var(--vn-button-bg);
+  color: var(--vn-button-text);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.vn-button:hover {
+  background-color: var(--vn-button-hover-bg);
+}
+
+.vn-choice-button {
+  background-color: var(--vn-choice-button-bg);
+  color: var(--vn-choice-button-text);
+  text-align: left;
+}
+
+.vn-choice-button:hover {
+  background-color: var(--vn-choice-button-hover-bg);
+}
+
+.vn-system {
+  font-style: italic;
+  color: var(--vn-system-text);
+  text-align: center;
+  transition: color 0.3s;
+}
+
+/* Optional Debug Area */
+.vn-debug-vars {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: var(--vn-debug-bg);
+  border: 1px solid var(--vn-debug-border);
+  border-radius: 4px;
+  max-height: 150px;
+  overflow-y: auto;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.vn-debug-vars h3 {
+  margin-top: 0;
+  font-size: 0.9em;
+  color: var(--vn-debug-title-text);
+  transition: color 0.3s;
+}
+
+.vn-debug-vars pre {
+  font-size: 0.8em;
+  color: var(--vn-debug-content-text);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  transition: color 0.3s;
+}

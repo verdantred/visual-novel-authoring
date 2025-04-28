@@ -1,0 +1,119 @@
+:root {
+  /* Base Font */
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Default Light Theme Variables */
+  --background-color-light: #ffffff;
+  --background-color-dark: #242424; /* Define dark bg here too */
+  --text-color: #213547;
+  --text-color-secondary: #555;
+  --text-color-dark: rgba(255, 255, 255, 0.87);
+  --text-color-dark-hover: #ffffff;
+  --border-color: #ccc;
+  --border-color-dark: #555;
+  --input-background-color: #fff;
+  --input-background-color-dark: #333;
+  --button-background-color: #f0f0f0;
+  --button-hover-background-color: #e0e0e0;
+  --button-text-color: #333;
+  --button-background-color-dark: #444;
+  --button-hover-background-color-dark: #555;
+  --button-text-color-dark: rgba(255, 255, 255, 0.87);
+  --primary-color: #646cff;
+  --primary-hover-color: #535bf2;
+  --primary-color-dark: #747bff;
+  --primary-hover-color-dark: #646cff;
+  --danger-color: #dc3545;
+  --danger-hover-color: #c82333;
+  --danger-color-dark: #f8d7da;
+  --danger-hover-color-dark: #f5c6cb;
+
+  /* Apply base colors */
+  color: var(--text-color);
+  background-color: var(--background-color-light);
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Light theme overrides (can refine if needed, defaults are mostly light) */
+body.theme-light {
+  color: var(--text-color);
+  background-color: var(--background-color-light);
+}
+body.theme-light a:hover {
+  color: var(--primary-hover-color);
+}
+body.theme-light button {
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
+}
+body.theme-light button:hover {
+  border-color: var(--primary-color);
+}
+
+
+/* Dark Theme Overrides */
+body.theme-dark {
+  color: var(--text-color-dark);
+  background-color: var(--background-color-dark);
+}
+body.theme-dark a {
+    color: var(--primary-color-dark);
+}
+body.theme-dark a:hover {
+  color: var(--primary-hover-color-dark);
+}
+body.theme-dark button {
+  background-color: var(--button-background-color-dark);
+  color: var(--button-text-color-dark);
+  border-color: var(--border-color-dark); /* Add border for dark buttons */
+}
+body.theme-dark button:hover {
+  border-color: var(--primary-color-dark);
+}

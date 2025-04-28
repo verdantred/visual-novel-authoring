@@ -1,0 +1,207 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.app-container {
+  width: 100vw;
+  height: calc(100vh - 60px); /* Adjust height to account for fixed toolbar */
+  margin-top: 60px; /* Add margin to push container below fixed toolbar */
+  display: flex;
+  overflow: hidden; /* Prevent scrollbars on the main container */
+}
+
+/* Container for the graph view itself */
+.graph-view-container {
+  flex-grow: 1; /* Allow graph view to take remaining space */
+  height: 100%;
+  position: relative; /* Needed for React Flow elements */
+}
+
+.react-flow-canvas {
+  background-color: var(--background-color); /* Use theme background */
+}
+
+/* Style for the custom node (optional additions) */
+.editable-node {
+    font-size: 11px; /* Example font size */
+    background-color: var(--background-color); /* Use theme background */
+    color: var(--text-color); /* Use theme text color */
+    border: 1px solid var(--button-border); /* Use theme border */
+    padding: 10px;
+    border-radius: 4px;
+    /* Add other base styles for your node appearance */
+}
+
+/* Resizable Container Styles */
+.side-panel-resizable {
+  position: relative; /* Needed for the handle positioning */
+  background-color: var(--toolbar-bg); /* Use theme panel background */
+  border-left: 1px solid var(--button-border); /* Use theme border */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0; /* Prevent panel from shrinking when window resizes */
+  z-index: 10; /* Keep it above potential elements */
+  overflow: visible !important; /* Override react-resizable's overflow: auto */
+}
+
+/* Custom Handle Styles */
+.custom-resize-handle {
+  position: absolute;
+  left: -5px; /* Position slightly outside the border */
+  top: 0;
+  bottom: 0;
+  width: 10px; /* Handle width */
+  cursor: col-resize; /* Indicate horizontal resizing */
+  z-index: 1; /* Ensure handle is clickable */
+  /* Optional: Add a visual indicator */
+  /* background-color: rgba(0, 0, 0, 0.1); */
+  /* border-left: 1px solid #aaa; */
+  /* border-right: 1px solid #aaa; */
+}
+
+/* Actual Side Panel Content Styles (inside the resizable box) */
+.side-panel {
+  /* Remove width/min/max/resize properties - controlled by ResizableBox */
+  height: 100%; /* Fill the resizable container */
+  /* background-color: #fff; */ /* Moved to resizable container */
+  /* border-left: 2px solid #ccc; */ /* Moved to resizable container */
+  /* box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); */ /* Moved to resizable container */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: auto; /* Enable scrolling for content */
+  /* flex-shrink: 0; */ /* Moved to resizable container */
+  /* z-index: 10; */ /* Moved to resizable container */
+  position: relative; /* Ensure close button positioning works */
+}
+
+.side-panel h2 {
+  margin-top: 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.side-panel p {
+  margin: 10px 0;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 5px;
+  line-height: 1;
+}
+
+/* Node Drawer Styles */
+.node-drawer {
+  width: 200px; /* Fixed width for the drawer */
+  height: 100%;
+  background-color: var(--toolbar-bg); /* Use theme panel background */
+  border-right: 1px solid var(--button-border); /* Use theme border */
+  color: var(--toolbar-text); /* Use theme text color */
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0; /* Prevent drawer from shrinking */
+  z-index: 10; /* Keep above graph */
+}
+
+.drawer-header {
+  font-weight: bold;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #dee2e6;
+  text-align: center;
+}
+
+.drawer-content {
+  flex-grow: 1;
+  overflow-y: auto; /* Allow scrolling if many node types */
+}
+
+.draggable-node {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--button-border); /* Use theme border */
+  border-radius: 4px;
+  background-color: var(--background-color); /* Use theme background */
+  color: var(--text-color); /* Use theme text color */
+  cursor: grab; /* Indicate draggable */
+  text-align: center;
+  user-select: none; /* Prevent text selection during drag */
+}
+
+.draggable-node:active {
+  cursor: grabbing; /* Indicate active drag */
+}
+
+/* React Flow Edge Label Styling */
+.react-flow__edge-textbg {
+  fill: #f8f9fa; /* Light background for light mode */
+  fill-opacity: 0.85;
+}
+
+.react-flow__edge-text {
+  fill: #343a40; /* Dark text for light mode */
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* Dark Mode Edge Label Styles */
+body.theme-dark .react-flow__edge-textbg {
+  fill: #495057; /* Darker background for dark mode */
+  fill-opacity: 0.85;
+}
+
+body.theme-dark .react-flow__edge-text {
+  fill: #f8f9fa; /* Light text for dark mode */
+}
+
+/* Condition Node Styles */
+.condition-node {
+  /* Make node more compact */
+  padding: 8px 12px; /* Reduced padding */
+  border: 1px solid var(--button-border);
+  border-radius: 5px;
+  background: var(--background-color);
+  color: var(--text-color);
+  width: fit-content; /* Explicitly size based on content */
+  text-align: center;
+  font-size: 11px;
+}
+
+.condition-text {
+  font-weight: bold;
+  margin: 4px 0; /* Reduced margin */
+  padding: 4px 6px; /* Reduced padding */
+  background: var(--button-bg); /* Use button background for contrast */
+  color: var(--button-text); /* Use button text color */
+  border-radius: 3px;
+  border: 1px solid var(--button-border); /* Use button border */
+  display: inline-block;
+}
+
+.condition-handles-container {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  padding-top: 5px; /* Space above handles */
+}
+
+.handle-label-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* For label positioning relative to handle */
+}
+
+.handle-label {
+  margin-top: 2px;
+  font-size: 10px;
+  color: var(--text-color-secondary, #555); /* Use secondary text color or fallback */
+}

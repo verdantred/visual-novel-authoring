@@ -1,0 +1,107 @@
+{
+    "variables": [
+        { "id": "var_loop_completed", "name": "Loop Completed", "value": false }
+    ],
+    "viewport": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+    },
+    "nodes": [
+        {
+            "id": "start",
+            "type": "dialogueNode",
+            "position": { "x": 250, "y": 50 },
+            "data": {
+                "character": "Narrator",
+                "dialogue": "Welcome! Let's see if you've looped."
+            }
+        },
+        {
+            "id": "check_loop",
+            "type": "conditionNode",
+            "position": { "x": 250, "y": 150 },
+            "data": {
+                "variableId": "var_loop_completed",
+                "operator": "==",
+                "value": true
+            }
+        },
+        {
+            "id": "dialogue_first_pass",
+            "type": "dialogueNode",
+            "position": { "x": 50, "y": 250 },
+            "data": {
+                "character": "Narrator",
+                "dialogue": "This is your first time through."
+            }
+        },
+        {
+            "id": "set_loop_true",
+            "type": "variableSetNode",
+            "position": { "x": 50, "y": 350 },
+            "data": {
+                "variableId": "var_loop_completed",
+                "newValue": true
+            }
+        },
+        {
+            "id": "dialogue_second_pass",
+            "type": "dialogueNode",
+            "position": { "x": 450, "y": 250 },
+            "data": {
+                "character": "Narrator",
+                "dialogue": "Ah, you've looped back! The condition is now true."
+            }
+        },
+        {
+            "id": "end",
+            "type": "dialogueNode",
+            "position": { "x": 450, "y": 350 },
+            "data": {
+                "character": "Narrator",
+                "dialogue": "The loop demonstration is complete."
+            }
+        }
+    ],
+    "edges": [
+        {
+            "id": "e-start-check",
+            "source": "start",
+            "target": "check_loop",
+            "label": ""
+        },
+        {
+            "id": "e-check-false",
+            "source": "check_loop",
+            "target": "dialogue_first_pass",
+            "sourceHandle": "false",
+            "label": "False"
+        },
+        {
+            "id": "e-first_pass-set_true",
+            "source": "dialogue_first_pass",
+            "target": "set_loop_true",
+            "label": ""
+        },
+        {
+            "id": "e-set_true-start",
+            "source": "set_loop_true",
+            "target": "start",
+            "label": "Loop Back"
+        },
+        {
+            "id": "e-check-true",
+            "source": "check_loop",
+            "target": "dialogue_second_pass",
+            "sourceHandle": "true",
+            "label": "True"
+        },
+        {
+            "id": "e-second_pass-end",
+            "source": "dialogue_second_pass",
+            "target": "end",
+            "label": ""
+        }
+    ]
+}

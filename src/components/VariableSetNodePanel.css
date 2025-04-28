@@ -1,0 +1,70 @@
+/* Define VariableSetNodePanel specific CSS variables within theme scopes */
+body.theme-light {
+  --panel-variable-set-text: #212529;
+  --panel-variable-set-label: #495057;
+  --panel-variable-set-input-bg: #ffffff;
+  --panel-variable-set-input-border: #ced4da;
+  --panel-variable-set-input-text: #495057;
+  --panel-variable-set-input-disabled-bg: #e9ecef;
+}
+
+body.theme-dark {
+  --panel-variable-set-text: #f8f9fa;
+  --panel-variable-set-label: #adb5bd;
+  --panel-variable-set-input-bg: #495057;
+  --panel-variable-set-input-border: #6c757d;
+  --panel-variable-set-input-text: #f8f9fa;
+  --panel-variable-set-input-disabled-bg: #343a40;
+}
+
+/* General VariableSetNodePanel Styling using CSS variables */
+.variable-set-node-panel {
+  padding: 15px;
+  color: var(--panel-variable-set-text);
+  transition: color 0.3s;
+}
+
+.variable-set-node-panel h4 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--panel-variable-set-input-border); /* Use input border for consistency */
+  padding-bottom: 10px;
+  transition: border-color 0.3s;
+}
+
+.variable-set-node-panel .form-group {
+  margin-bottom: 15px;
+}
+
+.variable-set-node-panel label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--panel-variable-set-label);
+  transition: color 0.3s;
+}
+
+.variable-set-node-panel select,
+.variable-set-node-panel input[type="text"],
+.variable-set-node-panel input[type="number"] /* Add number if used later */ {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--panel-variable-set-input-border);
+  background-color: var(--panel-variable-set-input-bg);
+  color: var(--panel-variable-set-input-text);
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding and border in width */
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.variable-set-node-panel select:focus,
+.variable-set-node-panel input:focus {
+  outline: none;
+  border-color: var(--vn-button-bg); /* Highlight with theme button color */
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Example focus shadow */
+}
+
+.variable-set-node-panel input:disabled {
+  background-color: var(--panel-variable-set-input-disabled-bg);
+  cursor: not-allowed;
+}

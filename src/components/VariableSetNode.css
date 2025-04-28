@@ -1,0 +1,77 @@
+/* Define VariableSetNode specific CSS variables within theme scopes */
+body.theme-light {
+  --variable-set-node-bg: #e9ecef; /* Light grey background */
+  --variable-set-node-border: #ced4da;
+  --variable-set-node-text: #495057;
+  --variable-set-node-title-bg: #dee2e6;
+  --variable-set-node-title-text: #212529;
+  --variable-set-node-handle-bg: #adb5bd;
+}
+
+body.theme-dark {
+  --variable-set-node-bg: #495057; /* Darker grey background */
+  --variable-set-node-border: #6c757d;
+  --variable-set-node-text: #f8f9fa;
+  --variable-set-node-title-bg: #6c757d;
+  --variable-set-node-title-text: #ffffff;
+  --variable-set-node-handle-bg: #adb5bd;
+}
+
+/* General VariableSetNode Styling using CSS variables */
+.variable-set-node {
+  background-color: var(--variable-set-node-bg);
+  border: 1px solid var(--variable-set-node-border);
+  color: var(--variable-set-node-text);
+  border-radius: 5px;
+  padding: 0; /* Remove default padding */
+  min-width: 180px; /* Ensure minimum width */
+  font-size: 12px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.variable-set-node-content {
+  padding: 10px 15px; /* Add padding inside */
+}
+
+.variable-set-node-title {
+  background-color: var(--variable-set-node-title-bg);
+  color: var(--variable-set-node-title-text);
+  padding: 5px 15px; /* Padding for the title bar */
+  border-top-left-radius: 4px; /* Match node border radius */
+  border-top-right-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 8px; /* Space below title */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.variable-set-node-details {
+  display: flex;
+  justify-content: space-around; /* Space out elements */
+  align-items: center;
+  font-family: monospace; /* Use monospace for code-like appearance */
+  font-size: 1.1em;
+}
+
+.variable-set-node-details span {
+  padding: 2px 4px;
+  background-color: rgba(0, 0, 0, 0.1); /* Subtle background for readability */
+  border-radius: 3px;
+}
+
+/* Style the handles */
+.variable-set-node .react-flow__handle {
+  background-color: var(--variable-set-node-handle-bg);
+  border: 1px solid var(--variable-set-node-border);
+  width: 8px;
+  height: 8px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.variable-set-node .react-flow__handle-top {
+  top: -5px;
+}
+
+.variable-set-node .react-flow__handle-bottom {
+  bottom: -5px;
+}

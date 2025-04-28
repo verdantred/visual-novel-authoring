@@ -1,0 +1,158 @@
+.graph-manager-overlay {
+  position: fixed; /* Cover the whole screen */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above everything */
+}
+
+.graph-manager-panel {
+  background-color: var(--background-color-light);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 20px;
+  z-index: 1001; /* Above overlay */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 300px; /* Slightly wider */
+  max-width: 90%;
+}
+
+.graph-manager-panel h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+/* Reuse panel close button style */
+.graph-manager-panel .panel-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: var(--text-color-secondary);
+}
+.graph-manager-panel .panel-close-button:hover {
+    color: var(--text-color);
+}
+
+.graph-manager-panel .graph-manager-controls,
+.graph-manager-panel .graph-manager-add {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Slightly more gap */
+}
+
+.graph-manager-panel label {
+  font-weight: bold;
+  color: var(--text-color-secondary);
+  margin-right: 5px;
+  white-space: nowrap; /* Prevent label wrapping */
+}
+
+.graph-manager-panel select,
+.graph-manager-panel input[type="text"] {
+  flex-grow: 1;
+  padding: 8px 10px; /* More padding */
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  background-color: var(--input-background-color);
+  color: var(--text-color);
+}
+
+.graph-manager-panel select {
+  cursor: pointer;
+}
+
+.graph-manager-panel button {
+  padding: 8px 12px; /* More padding */
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
+  transition: background-color 0.2s ease;
+}
+
+.graph-manager-panel button:hover {
+  background-color: var(--button-hover-background-color);
+}
+
+.graph-manager-panel .delete-graph-button {
+  background-color: transparent;
+  border: none;
+  color: var(--danger-color);
+  font-size: 1.1em;
+  padding: 0 5px;
+  margin-left: 5px;
+}
+
+.graph-manager-panel .delete-graph-button:hover {
+  color: var(--danger-hover-color);
+}
+
+.graph-manager-panel .add-graph-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.graph-manager-panel .add-graph-button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+/* Add styles for dark mode if needed */
+.theme-dark .graph-manager-panel {
+  background-color: var(--background-color-dark);
+  border-color: var(--border-color-dark);
+}
+
+.theme-dark .graph-manager-panel h4,
+.theme-dark .graph-manager-panel label,
+.theme-dark .graph-manager-panel .panel-close-button {
+  color: var(--text-color-dark);
+}
+.theme-dark .graph-manager-panel .panel-close-button:hover {
+    color: var(--text-color-dark-hover); /* Define if needed */
+}
+
+
+.theme-dark .graph-manager-panel select,
+.theme-dark .graph-manager-panel input[type="text"] {
+  background-color: var(--input-background-color-dark);
+  border-color: var(--border-color-dark);
+  color: var(--text-color-dark);
+}
+
+.theme-dark .graph-manager-panel button {
+  background-color: var(--button-background-color-dark);
+  color: var(--button-text-color-dark);
+}
+
+.theme-dark .graph-manager-panel button:hover {
+  background-color: var(--button-hover-background-color-dark);
+}
+
+.theme-dark .graph-manager-panel .delete-graph-button {
+  color: var(--danger-color-dark);
+}
+.theme-dark .graph-manager-panel .delete-graph-button:hover {
+  color: var(--danger-hover-color-dark);
+}
+
+.theme-dark .graph-manager-panel .add-graph-button {
+  background-color: var(--primary-color-dark);
+}
+.theme-dark .graph-manager-panel .add-graph-button:hover {
+  background-color: var(--primary-hover-color-dark);
+}
